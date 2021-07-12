@@ -18,8 +18,8 @@ import 'dart:convert' show json;
 import 'Status.dart';
 
 class IsEnvReadyResult {
-  String returnCode;
-  Status status;
+  String? returnCode;
+  Status? status;
 
   IsEnvReadyResult({
     this.returnCode,
@@ -41,7 +41,7 @@ class IsEnvReadyResult {
   Map<String, dynamic> toMap() {
     return {
       "returnCode": returnCode,
-      "status": status == null ? null : status.toMap(),
+      "status": status == null ? null : status!.toMap(),
     };
   }
 
@@ -49,7 +49,7 @@ class IsEnvReadyResult {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final IsEnvReadyResult check = o;
+    final IsEnvReadyResult check = o as IsEnvReadyResult;
     return o is IsEnvReadyResult &&
         check.returnCode == returnCode &&
         check.status == status;

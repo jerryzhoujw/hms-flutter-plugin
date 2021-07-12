@@ -19,12 +19,12 @@ import 'ConsumePurchaseData.dart';
 import 'Status.dart';
 
 class ConsumeOwnedPurchaseResult {
-  ConsumePurchaseData consumePurchaseData;
-  String dataSignature;
-  String errMsg;
-  String returnCode;
-  Status status;
-  String rawValue;
+  ConsumePurchaseData? consumePurchaseData;
+  String? dataSignature;
+  String? errMsg;
+  String? returnCode;
+  Status? status;
+  String? rawValue;
 
   ConsumeOwnedPurchaseResult({
     this.consumePurchaseData,
@@ -60,18 +60,18 @@ class ConsumeOwnedPurchaseResult {
 
   Map<String, dynamic> toMap() => {
         "consumePurchaseData":
-            consumePurchaseData == null ? null : consumePurchaseData.toJson(),
+            consumePurchaseData == null ? null : consumePurchaseData!.toJson(),
         "dataSignature": dataSignature,
         "errMsg": errMsg,
         "returnCode": returnCode,
-        "status": status == null ? null : status.toMap(),
+        "status": status == null ? null : status!.toMap(),
       };
 
   @override
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final ConsumeOwnedPurchaseResult check = o;
+    final ConsumeOwnedPurchaseResult check = o as ConsumeOwnedPurchaseResult;
     return o is ConsumeOwnedPurchaseResult &&
         check.consumePurchaseData == consumePurchaseData &&
         check.dataSignature == dataSignature &&

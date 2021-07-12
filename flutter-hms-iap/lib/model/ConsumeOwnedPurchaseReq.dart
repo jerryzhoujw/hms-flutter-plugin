@@ -17,11 +17,11 @@ import 'dart:convert' show json;
 import 'package:flutter/foundation.dart' show required;
 
 class ConsumeOwnedPurchaseReq {
-  String purchaseToken;
-  String developerChallenge;
+  String? purchaseToken;
+  String? developerChallenge;
 
   ConsumeOwnedPurchaseReq({
-    @required this.purchaseToken,
+    required this.purchaseToken,
     this.developerChallenge,
   });
 
@@ -50,7 +50,7 @@ class ConsumeOwnedPurchaseReq {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final ConsumeOwnedPurchaseReq check = o;
+    final ConsumeOwnedPurchaseReq check = o as ConsumeOwnedPurchaseReq;
     return o is ConsumeOwnedPurchaseReq &&
         check.purchaseToken == purchaseToken &&
         check.developerChallenge == developerChallenge;

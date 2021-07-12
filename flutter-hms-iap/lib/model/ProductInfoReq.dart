@@ -17,12 +17,12 @@ import 'dart:convert' show json;
 import 'package:flutter/foundation.dart' show listEquals, required;
 
 class ProductInfoReq {
-  int priceType;
-  List<String> skuIds;
+  int? priceType;
+  List<String>? skuIds;
 
   ProductInfoReq({
-    @required this.priceType,
-    @required this.skuIds,
+    required this.priceType,
+    required this.skuIds,
   });
 
   factory ProductInfoReq.fromJson(String str) =>
@@ -43,7 +43,7 @@ class ProductInfoReq {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final ProductInfoReq check = o;
+    final ProductInfoReq check = o as ProductInfoReq;
     return o is ProductInfoReq &&
         check.priceType == priceType &&
         listEquals(check.skuIds, skuIds);

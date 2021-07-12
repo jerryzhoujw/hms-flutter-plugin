@@ -20,16 +20,16 @@ import 'InAppPurchaseData.dart';
 import 'Status.dart';
 
 class OwnedPurchasesResult {
-  String continuationToken;
-  String errMsg;
-  List<InAppPurchaseData> inAppPurchaseDataList;
-  List<String> inAppSignature;
-  List<String> itemList;
-  String returnCode;
-  Status status;
-  List<String> placedInappPurchaseDataList;
-  List<String> placedInappSignatureList;
-  String rawValue;
+  String? continuationToken;
+  String? errMsg;
+  List<InAppPurchaseData>? inAppPurchaseDataList;
+  List<String>? inAppSignature;
+  List<String>? itemList;
+  String? returnCode;
+  Status? status;
+  List<String>? placedInappPurchaseDataList;
+  List<String>? placedInappSignatureList;
+  String? rawValue;
 
   OwnedPurchasesResult({
     this.continuationToken,
@@ -88,20 +88,20 @@ class OwnedPurchasesResult {
       "errMsg": errMsg == null ? null : errMsg,
       "inAppPurchaseDataList": inAppPurchaseDataList == null
           ? null
-          : List<dynamic>.from(inAppPurchaseDataList.map((x) => x)),
+          : List<dynamic>.from(inAppPurchaseDataList!.map((x) => x)),
       "inAppSignature": inAppSignature == null
           ? null
-          : List<dynamic>.from(inAppSignature.map((x) => x)),
+          : List<dynamic>.from(inAppSignature!.map((x) => x)),
       "itemList":
-          itemList == null ? null : List<dynamic>.from(itemList.map((x) => x)),
+          itemList == null ? null : List<dynamic>.from(itemList!.map((x) => x)),
       "returnCode": returnCode == null ? null : returnCode,
-      "status": status == null ? null : status.toMap(),
+      "status": status == null ? null : status!.toMap(),
       "placedInappPurchaseDataList": placedInappPurchaseDataList == null
           ? null
-          : List<String>.from(placedInappPurchaseDataList.map((x) => x)),
+          : List<String>.from(placedInappPurchaseDataList!.map((x) => x)),
       "placedInappSignatureList": placedInappSignatureList == null
           ? null
-          : List<String>.from(placedInappSignatureList.map((x) => x)),
+          : List<String>.from(placedInappSignatureList!.map((x) => x)),
     };
   }
 
@@ -109,7 +109,7 @@ class OwnedPurchasesResult {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final OwnedPurchasesResult check = o;
+    final OwnedPurchasesResult check = o as OwnedPurchasesResult;
     return o is OwnedPurchasesResult &&
         check.continuationToken == continuationToken &&
         check.errMsg == errMsg &&

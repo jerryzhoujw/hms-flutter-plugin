@@ -37,18 +37,18 @@ class IapClient {
   static const int IN_APP_SUBSCRIPTION = 2;
 
   static Future<IsEnvReadyResult> isEnvReady() async {
-    return IsEnvReadyResult.fromJson(await _channel.invokeMethod('isEnvReady'));
+    return IsEnvReadyResult.fromJson(await (_channel.invokeMethod('isEnvReady') as FutureOr<String>));
   }
 
   static Future<IsSandboxActivatedResult> isSandboxActivated() async {
     return IsSandboxActivatedResult.fromJson(
-        await _channel.invokeMethod("isSandboxActivated"));
+        await (_channel.invokeMethod("isSandboxActivated") as FutureOr<String>));
   }
 
   static Future<ProductInfoResult> obtainProductInfo(
       ProductInfoReq request) async {
     return ProductInfoResult.fromJson(
-        await _channel.invokeMethod("obtainProductInfo", request.toMap()));
+        await (_channel.invokeMethod("obtainProductInfo", request.toMap()) as FutureOr<String>));
   }
 
   static Future<void> startIapActivity(StartIapActivityReq request) async {
@@ -58,25 +58,25 @@ class IapClient {
   static Future<PurchaseResultInfo> createPurchaseIntent(
       PurchaseIntentReq request) async {
     return PurchaseResultInfo.fromJson(
-        await _channel.invokeMethod("createPurchaseIntent", request.toMap()));
+        await (_channel.invokeMethod("createPurchaseIntent", request.toMap()) as FutureOr<String>));
   }
 
   static Future<OwnedPurchasesResult> obtainOwnedPurchases(
       OwnedPurchasesReq request) async {
     return OwnedPurchasesResult.fromJson(
-        await _channel.invokeMethod("obtainOwnedPurchases", request.toMap()));
+        await (_channel.invokeMethod("obtainOwnedPurchases", request.toMap()) as FutureOr<String>));
   }
 
   static Future<ConsumeOwnedPurchaseResult> consumeOwnedPurchase(
       ConsumeOwnedPurchaseReq request) async {
     return ConsumeOwnedPurchaseResult.fromJson(
-        await _channel.invokeMethod("consumeOwnedPurchase", request.toMap()));
+        await (_channel.invokeMethod("consumeOwnedPurchase", request.toMap()) as FutureOr<String>));
   }
 
   static Future<OwnedPurchasesResult> obtainOwnedPurchaseRecord(
       OwnedPurchasesReq request) async {
-    return OwnedPurchasesResult.fromJson(await _channel.invokeMethod(
-        "obtainOwnedPurchaseRecord", request.toMap()));
+    return OwnedPurchasesResult.fromJson(await (_channel.invokeMethod(
+        "obtainOwnedPurchaseRecord", request.toMap()) as FutureOr<String>));
   }
 
   //HMS Logger

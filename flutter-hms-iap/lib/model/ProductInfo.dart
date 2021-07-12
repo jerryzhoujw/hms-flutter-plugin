@@ -16,25 +16,25 @@
 import 'dart:convert' show json;
 
 class ProductInfo {
-  String productId;
-  int priceType;
-  String price;
-  int microsPrice;
-  String originalLocalPrice;
-  int originalMicroPrice;
-  String currency;
-  String productName;
-  String productDesc;
-  int subSpecialPriceMicros;
-  int subSpecialPeriodCycles;
-  int subProductLevel;
-  int status;
-  String subFreeTrialPeriod;
-  String subGroupId;
-  String subGroupTitle;
-  String subSpecialPeriod;
-  String subPeriod;
-  String subSpecialPrice;
+  String? productId;
+  int? priceType;
+  String? price;
+  int? microsPrice;
+  String? originalLocalPrice;
+  int? originalMicroPrice;
+  String? currency;
+  String? productName;
+  String? productDesc;
+  int? subSpecialPriceMicros;
+  int? subSpecialPeriodCycles;
+  int? subProductLevel;
+  int? status;
+  String? subFreeTrialPeriod;
+  String? subGroupId;
+  String? subGroupTitle;
+  String? subSpecialPeriod;
+  String? subPeriod;
+  String? subSpecialPrice;
 
   ProductInfo({
     this.productId,
@@ -127,7 +127,7 @@ class ProductInfo {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final ProductInfo check = o;
+    final ProductInfo check = o as ProductInfo;
     return o is ProductInfo &&
         check.productId == productId &&
         check.priceType == priceType &&

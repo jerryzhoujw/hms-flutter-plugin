@@ -17,14 +17,14 @@ import 'dart:convert' show json;
 import 'package:flutter/foundation.dart' show required;
 
 class PurchaseIntentReq {
-  int priceType;
-  String productId;
-  String developerPayload;
-  String reservedInfor;
+  int? priceType;
+  String? productId;
+  String? developerPayload;
+  String? reservedInfor;
 
   PurchaseIntentReq({
-    @required this.priceType,
-    @required this.productId,
+    required this.priceType,
+    required this.productId,
     this.developerPayload,
     this.reservedInfor,
   });
@@ -57,7 +57,7 @@ class PurchaseIntentReq {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final PurchaseIntentReq check = o;
+    final PurchaseIntentReq check = o as PurchaseIntentReq;
     return o is PurchaseIntentReq &&
         check.priceType == priceType &&
         check.productId == productId &&

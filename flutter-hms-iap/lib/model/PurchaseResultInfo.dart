@@ -17,11 +17,11 @@ import 'dart:convert' show json;
 import 'InAppPurchaseData.dart';
 
 class PurchaseResultInfo {
-  String returnCode;
-  InAppPurchaseData inAppPurchaseData;
-  String inAppDataSignature;
-  String errMsg;
-  String rawValue;
+  String? returnCode;
+  InAppPurchaseData? inAppPurchaseData;
+  String? inAppDataSignature;
+  String? errMsg;
+  String? rawValue;
 
   PurchaseResultInfo({
     this.inAppDataSignature,
@@ -57,7 +57,7 @@ class PurchaseResultInfo {
     return {
       "returnCode": returnCode,
       "inAppPurchaseData":
-          inAppPurchaseData == null ? null : inAppPurchaseData.toJson(),
+          inAppPurchaseData == null ? null : inAppPurchaseData!.toJson(),
       "inAppDataSignature": inAppDataSignature,
       "errMsg": errMsg,
     };
@@ -67,7 +67,7 @@ class PurchaseResultInfo {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final PurchaseResultInfo check = o;
+    final PurchaseResultInfo check = o as PurchaseResultInfo;
     return o is PurchaseResultInfo &&
         check.returnCode == returnCode &&
         check.inAppPurchaseData == inAppPurchaseData &&

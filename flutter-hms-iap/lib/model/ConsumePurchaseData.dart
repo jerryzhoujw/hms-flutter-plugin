@@ -16,30 +16,30 @@
 import 'dart:convert' show json;
 
 class ConsumePurchaseData {
-  int applicationId;
-  bool autoRenewing;
-  String orderId;
-  String packageName;
-  String productId;
-  int purchaseTime;
-  int purchaseState;
-  String developerPayload;
-  String purchaseToken;
-  String developerChallenge;
-  int consumptionState;
-  int acknowledged;
-  String currency;
-  int price;
-  String country;
-  String responseCode;
-  String responseMessage;
-  int kind;
-  String productName;
-  int purchaseTimeMillis;
-  int confirmed;
-  int purchaseType;
-  String payOrderId;
-  String payType;
+  int? applicationId;
+  bool? autoRenewing;
+  String? orderId;
+  String? packageName;
+  String? productId;
+  int? purchaseTime;
+  int? purchaseState;
+  String? developerPayload;
+  String? purchaseToken;
+  String? developerChallenge;
+  int? consumptionState;
+  int? acknowledged;
+  String? currency;
+  int? price;
+  String? country;
+  String? responseCode;
+  String? responseMessage;
+  int? kind;
+  String? productName;
+  int? purchaseTimeMillis;
+  int? confirmed;
+  int? purchaseType;
+  String? payOrderId;
+  String? payType;
 
   ConsumePurchaseData(
       {this.autoRenewing,
@@ -148,7 +148,7 @@ class ConsumePurchaseData {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final ConsumePurchaseData check = o;
+    final ConsumePurchaseData check = o as ConsumePurchaseData;
     return o is ConsumePurchaseData &&
         check.autoRenewing == autoRenewing &&
         check.orderId == orderId &&

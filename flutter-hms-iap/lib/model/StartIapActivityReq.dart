@@ -20,11 +20,11 @@ class StartIapActivityReq {
   static const int TYPE_SUBSCRIBE_MANAGER_ACTIVITY = 2;
   static const int TYPE_SUBSCRIBE_EDIT_ACTIVITY = 3;
 
-  int type;
-  String productId;
+  int? type;
+  String? productId;
 
   StartIapActivityReq({
-    @required this.type,
+    required this.type,
     this.productId,
   });
 
@@ -50,7 +50,7 @@ class StartIapActivityReq {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final StartIapActivityReq check = o;
+    final StartIapActivityReq check = o as StartIapActivityReq;
     return o is StartIapActivityReq &&
         check.type == type &&
         check.productId == productId;

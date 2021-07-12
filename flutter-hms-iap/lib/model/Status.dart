@@ -16,9 +16,9 @@
 import 'dart:convert' show json;
 
 class Status {
-  int statusCode;
-  String statusMessage;
-  Status status;
+  int? statusCode;
+  String? statusMessage;
+  Status? status;
 
   Status({
     this.statusCode,
@@ -43,7 +43,7 @@ class Status {
     data['statusCode'] = this.statusCode;
     data['statusMessage'] = this.statusMessage;
     if (this.status != null) {
-      data['status'] = this.status.toMap();
+      data['status'] = this.status!.toMap();
     }
     return data;
   }
@@ -52,7 +52,7 @@ class Status {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
     if (runtimeType != o.runtimeType) return false;
-    final Status check = o;
+    final Status check = o as Status;
     return o is Status &&
         check.statusCode == statusCode &&
         check.statusMessage == statusMessage &&
