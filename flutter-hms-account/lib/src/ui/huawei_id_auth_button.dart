@@ -24,23 +24,23 @@ enum AuthButtonRadius { SMALL, MEDIUM, LARGE }
 const Color hwRed = Color(0xffCE0E2D);
 
 class HuaweiIdAuthButton extends StatelessWidget {
-  final AuthButtonTheme theme;
-  final AuthButtonBackground buttonColor;
-  final AuthButtonRadius borderRadius;
+  final AuthButtonTheme? theme;
+  final AuthButtonBackground? buttonColor;
+  final AuthButtonRadius? borderRadius;
   final VoidCallback onPressed;
 
-  final double width;
-  final double height;
-  final double elevation;
-  final double padding;
+  final double? width;
+  final double? height;
+  final double? elevation;
+  final double? padding;
 
-  final Color textColor;
-  final double fontSize;
-  final FontWeight fontWeight;
+  final Color? textColor;
+  final double? fontSize;
+  final FontWeight? fontWeight;
 
   const HuaweiIdAuthButton(
-      {Key key,
-      @required this.onPressed,
+      {Key? key,
+      required this.onPressed,
       this.width,
       this.height,
       this.elevation,
@@ -74,9 +74,9 @@ class HuaweiIdAuthButton extends StatelessWidget {
             children: <Widget>[
               buttonColor == AuthButtonBackground.WHITE
                   ? Image.asset("packages/huawei_account/src/ui/logored.png",
-                      height: height != null ? height * .9 : 50)
+                      height: height != null ? height! * .9 : 50)
                   : Image.asset("packages/huawei_account/src/ui/logo.png",
-                      height: height != null ? height * .9 : 50),
+                      height: height != null ? height! * .9 : 50),
               SizedBox(width: 8),
               theme == AuthButtonTheme.NO_TITLE
                   ? SizedBox()
@@ -101,9 +101,9 @@ class HuaweiIdAuthButton extends StatelessWidget {
     );
   }
 
-  String get getColor => describeEnum(this.buttonColor);
+  String get getColor => describeEnum(this.buttonColor!);
 
-  String get getTheme => describeEnum(this.theme);
+  String get getTheme => describeEnum(this.theme!);
 
-  String get getRadius => describeEnum(this.borderRadius);
+  String get getRadius => describeEnum(this.borderRadius!);
 }

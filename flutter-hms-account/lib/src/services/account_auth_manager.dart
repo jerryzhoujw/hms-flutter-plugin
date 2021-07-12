@@ -59,7 +59,7 @@ class AccountAuthManager {
   }
 
   /// Checks whether an ID has been assigned all permissions specified by [scopeList].
-  static Future<bool> containScopes(
+  static Future<bool?> containScopes(
       AuthAccount account, List<Scope> scopeList) {
     checkParams([account, scopeList]);
     final List<String> scopes = getScopeList(scopeList);
@@ -69,7 +69,7 @@ class AccountAuthManager {
   }
 
   /// Checks whether an ID has been assigned all permissions specified by [extendedParams].
-  static Future<bool> containScopesWithExtendedParams(
+  static Future<bool?> containScopesWithExtendedParams(
       AuthAccount account, AccountAuthExtendedParams extendedParams) {
     checkParams([account, extendedParams]);
     Map<String, dynamic> extMap = getExtendedParamsMap(extendedParams);

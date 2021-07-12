@@ -23,7 +23,7 @@ class NetworkTool {
   static const MethodChannel c = const MethodChannel(NETWORK_TOOL);
 
   /// Constructs a cookie by combining entered values.
-  static Future<String> buildNetworkCookie(
+  static Future<String?> buildNetworkCookie(
       String cookieName,
       String cookieValue,
       String domain,
@@ -43,7 +43,7 @@ class NetworkTool {
   }
 
   /// Obtains a cookie URL based on the domain name and [isUseHttps].
-  static Future<String> buildNetworkUrl(String domain, [bool isUseHttps]) {
+  static Future<String?> buildNetworkUrl(String domain, [bool? isUseHttps]) {
     checkParams([domain]);
 
     return c.invokeMethod(

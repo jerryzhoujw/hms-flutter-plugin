@@ -25,21 +25,21 @@ class HuaweiIdAuthTool {
   static const MethodChannel _c = const MethodChannel(AUTH_TOOL);
 
   /// Deletes authentication information cached locally.
-  static Future<bool> deleteAuthInfo(String accessToken) {
+  static Future<bool?> deleteAuthInfo(String accessToken) {
     checkParams([accessToken]);
 
     return _c.invokeMethod("deleteAuthInfo", {'accessToken': accessToken});
   }
 
   /// Obtains a UnionID.
-  static Future<String> requestUnionId(Account account) {
+  static Future<String?> requestUnionId(Account account) {
     checkParams([account]);
 
     return _c.invokeMethod("requestUnionId", {'accountName': account.name});
   }
 
   /// Obtains a token.
-  static Future<String> requestAccessToken(
+  static Future<String?> requestAccessToken(
       Account account, List<Scope> scopeList) {
     checkParams([account, account.name, account.type]);
     final List<String> scopes = getScopeList(scopeList);

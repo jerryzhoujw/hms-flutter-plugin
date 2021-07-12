@@ -18,29 +18,18 @@ import 'account_auth_params.dart';
 import '../common/scope.dart';
 
 class AccountAuthParamsHelper {
-  AccountAuthParams _params;
-  bool _needUid;
-  bool _needAuthorizationCode;
-  bool _needAccessToken;
-  bool _needEmail;
-  bool _needId;
-  bool _needIdToken;
-  bool _needProfile;
-  bool _needAuthDialog;
-  List<String> _scopeList;
+  AccountAuthParams _params = AccountAuthParams.defaultAuthRequestParam;
+  bool _needUid = false;
+  bool _needAuthorizationCode = false;
+  bool _needAccessToken = false;
+  bool _needEmail = false;
+  bool _needId = false;
+  bool _needIdToken = false;
+  bool _needProfile = false;
+  bool _needAuthDialog = false;
+  List<String> _scopeList = [];
 
-  AccountAuthParamsHelper() {
-    _needUid = false;
-    _needAuthorizationCode = false;
-    _needAccessToken = false;
-    _needEmail = false;
-    _needId = false;
-    _needIdToken = false;
-    _needProfile = false;
-    _needAuthDialog = false;
-    _scopeList = [];
-    _params = AccountAuthParams.defaultAuthRequestParam;
-  }
+  AccountAuthParamsHelper();
 
   /// Creates a map object from attributes.
   Map<String, dynamic> toMap() {
@@ -60,9 +49,7 @@ class AccountAuthParamsHelper {
 
   /// Sets the default auth parameter for signing in.
   void setDefaultParam(AccountAuthParams p) {
-    if (p != null) {
-      _params = p;
-    }
+    _params = p;
   }
 
   /// Requests an ID user to authorize an app to obtain the user ID.
@@ -110,7 +97,7 @@ class AccountAuthParamsHelper {
   /// authorize an app to obtain the permission specified by the scope.
   void setScopeList(List<Scope> scopes) {
     _scopeList.clear();
-    if (scopes != null && scopes.isNotEmpty) {
+    if (scopes.isNotEmpty) {
       scopes.forEach((scope) {
         _scopeList.add(scope.getScopeUri());
       });
